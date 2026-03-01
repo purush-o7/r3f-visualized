@@ -34,6 +34,7 @@ import {
   CommandGroup,
   CommandItem,
 } from "@/components/ui/command";
+import { trackEvent } from "@/lib/analytics";
 
 type NavItem = {
   href: string;
@@ -274,6 +275,7 @@ export function CommandPalette() {
     (href: string) => {
       setOpen(false);
       router.push(href);
+      trackEvent("command_palette", "navigation", href);
     },
     [router]
   );

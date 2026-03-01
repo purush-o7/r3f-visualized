@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 type TopicLink = { href: string; label: string; category: string };
 
@@ -106,6 +107,7 @@ export function TopicNav() {
       {prev ? (
         <Link
           href={prev.href}
+          onClick={() => trackEvent("topic_nav", "navigation", `prev: ${prev.label}`)}
           className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ChevronLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
@@ -122,6 +124,7 @@ export function TopicNav() {
       {next ? (
         <Link
           href={next.href}
+          onClick={() => trackEvent("topic_nav", "navigation", `next: ${next.label}`)}
           className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors text-right"
         >
           <div>

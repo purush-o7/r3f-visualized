@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Rocket, ChevronRight, Lightbulb, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 
 interface TryThisChallengeProps {
@@ -68,7 +69,10 @@ export function TryThisChallenge({
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setShowHint(true)}
+              onClick={() => {
+                setShowHint(true);
+                trackEvent("try_this_hint", "engagement", challenge.slice(0, 60));
+              }}
               className={cn(
                 `border-${diff.color}-500/30 hover:bg-${diff.color}-500/10`,
                 `text-${diff.color}-500`
@@ -82,7 +86,10 @@ export function TryThisChallenge({
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setShowSolution(true)}
+              onClick={() => {
+                setShowSolution(true);
+                trackEvent("try_this_solution", "engagement", challenge.slice(0, 60));
+              }}
               className={cn(
                 `border-${diff.color}-500/30 hover:bg-${diff.color}-500/10`,
                 `text-${diff.color}-500`

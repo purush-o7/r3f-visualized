@@ -13,15 +13,16 @@ import { PageTransition } from "@/components/page-transition";
 import { KeyboardProvider } from "@/components/keyboard-provider";
 import { CommandPalette } from "@/components/command-palette";
 import { JsonLd } from "@/components/json-ld";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
 const outfit = Outfit({
-  variable: "--font-geist-sans",
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -93,6 +94,7 @@ export default function RootLayout({
           }}
         />
       </head>
+      <GoogleAnalytics />
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} antialiased`}
       >

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Lightbulb, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 interface AhaMomentProps {
   setup: string;
@@ -30,7 +31,10 @@ export function AhaMoment({ setup, reveal, icon, className }: AhaMomentProps) {
       )}
     >
       <button
-        onClick={() => setRevealed(!revealed)}
+        onClick={() => {
+          if (!revealed) trackEvent("aha_moment_revealed", "engagement", setup.slice(0, 80));
+          setRevealed(!revealed);
+        }}
         className="flex items-start gap-3 w-full p-5 text-left cursor-pointer group"
       >
         <div className="size-9 rounded-lg flex items-center justify-center shrink-0 bg-amber-500/10 mt-0.5">

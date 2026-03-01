@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -21,6 +22,7 @@ export function ThemeToggle() {
       onClick={() => {
         const next = theme === "dark" ? "light" : "dark";
         setTheme(next);
+        trackEvent("toggle_theme", "preferences", next);
       }}
     >
       {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
