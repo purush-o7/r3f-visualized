@@ -11,6 +11,8 @@ import { TableOfContents } from "@/components/table-of-contents";
 import { Github } from "lucide-react";
 import { PageTransition } from "@/components/page-transition";
 import { KeyboardProvider } from "@/components/keyboard-provider";
+import { CommandPalette } from "@/components/command-palette";
+import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -24,12 +26,29 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://r3f-visualized.vercel.app"),
   title: {
     default: "Learn R3F — Interactive Guide to React Three Fiber",
     template: "%s | Learn R3F",
   },
   description:
-    "Interactive learning guide for React Three Fiber and Three.js with Next.js",
+    "Interactive learning guide for React Three Fiber and Three.js — story-driven lessons, live 3D demos, hands-on challenges, and debug controls.",
+  icons: {
+    icon: "/favicon.svg",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Learn R3F",
+    title: "Learn R3F — Interactive Guide to React Three Fiber",
+    description:
+      "Master 3D on the web with 80+ interactive lessons covering Three.js, React Three Fiber, shaders, physics, and production deployment.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Learn R3F — Interactive Guide to React Three Fiber",
+    description:
+      "Master 3D on the web with 80+ interactive lessons, live demos, and hands-on challenges.",
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +58,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Course",
+            name: "Learn React Three Fiber",
+            description: "Interactive guide to 3D on the web — from Three.js fundamentals to production R3F with live demos, hands-on challenges, and debug controls.",
+            provider: {
+              "@type": "Organization",
+              name: "R3F Visualized",
+              url: "https://r3f-visualized.vercel.app",
+            },
+            educationalLevel: "Beginner to Advanced",
+            programmingLanguage: "JavaScript",
+            teaches: "React Three Fiber, Three.js, WebGL, GLSL Shaders, 3D Web Development",
+            numberOfLessons: 59,
+            isAccessibleForFree: true,
+            inLanguage: "en",
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Learn R3F",
+            url: "https://r3f-visualized.vercel.app",
+            description: "Interactive learning guide for React Three Fiber and Three.js",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://r3f-visualized.vercel.app/?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} antialiased`}
       >
@@ -52,6 +106,7 @@ export default function RootLayout({
                   <Separator orientation="vertical" className="mr-2 !h-4" />
                   <BreadcrumbNav />
                   <div className="ml-auto flex items-center gap-1">
+                    <CommandPalette />
                     <a
                       href="https://github.com/purush-o7"
                       target="_blank"

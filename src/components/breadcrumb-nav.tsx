@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import { Fragment } from "react";
+import { JsonLd } from "@/components/json-ld";
 
 const labelMap: Record<string, string> = {
   // Three.js Fundamentals
@@ -104,7 +105,23 @@ export function BreadcrumbNav() {
 
   const segments = pathname.split("/").filter(Boolean);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://r3f-visualized.vercel.app" },
+      ...segments.map((segment, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: labelMap[segment] || segment.replace(/-/g, " "),
+        item: `https://r3f-visualized.vercel.app/${segments.slice(0, i + 1).join("/")}`,
+      })),
+    ],
+  };
+
   return (
+    <>
+    <JsonLd data={breadcrumbJsonLd} />
     <nav className="flex items-center gap-1.5 text-sm text-muted-foreground">
       <Link
         href="/"
@@ -136,5 +153,6 @@ export function BreadcrumbNav() {
         );
       })}
     </nav>
+    </>
   );
 }
