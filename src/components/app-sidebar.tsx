@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   Box,
   BookOpen,
+  Check,
   ChevronRight,
   Cylinder,
   Paintbrush,
@@ -52,6 +53,8 @@ import {
   FolderTree,
   Rocket,
 } from "lucide-react";
+import { useProgress } from "@/hooks/use-progress";
+import { ProgressBar } from "@/components/progress-bar";
 import {
   Sidebar,
   SidebarContent,
@@ -331,12 +334,36 @@ const advancedCategories: Category[] = [
   },
 ];
 
+function LogoMark() {
+  return (
+    <div className="size-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0">
+      <svg viewBox="0 0 16 16" fill="none" className="size-4">
+        <path
+          d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8 1V8M8 8L14 4.5M8 8L2 4.5"
+          stroke="white"
+          strokeWidth="1"
+          strokeLinejoin="round"
+          opacity="0.6"
+        />
+      </svg>
+    </div>
+  );
+}
+
 function CategoryItem({
   category,
   pathname,
+  isVisited,
 }: {
   category: Category;
   pathname: string;
+  isVisited: (href: string) => boolean;
 }) {
   const isActive =
     pathname === category.href ||
@@ -379,7 +406,10 @@ function CategoryItem({
                   className="transition-all duration-150 hover:translate-x-0.5"
                 >
                   <Link href={topic.href}>
-                    <span className="font-mono text-xs">{topic.label}</span>
+                    <span className="font-mono text-xs flex-1">{topic.label}</span>
+                    {isVisited(topic.href) && (
+                      <Check className="size-3 text-green-500 shrink-0" />
+                    )}
                   </Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
@@ -393,15 +423,18 @@ function CategoryItem({
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const { isVisited, getSectionProgress } = useProgress();
 
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
-        <Link href="/" className="flex items-center gap-2">
-          <Box className="size-5" />
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <LogoMark />
           <div>
-            <p className="text-sm font-semibold leading-none">Learn R3F</p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm font-bold leading-none bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Learn R3F
+            </p>
+            <p className="text-[11px] text-muted-foreground/70">
               Three.js + React Three Fiber
             </p>
           </div>
@@ -410,6 +443,12 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Three.js Fundamentals</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              threeJsCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {threeJsCategories.map((category) => (
@@ -417,6 +456,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -424,6 +464,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>React Three Fiber</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              r3fCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {r3fCategories.map((category) => (
@@ -431,6 +477,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -443,6 +490,12 @@ export function AppSidebar() {
               @react-three/drei
             </Badge>
           </SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              dreiCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {dreiCategories.map((category) => (
@@ -450,6 +503,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -457,6 +511,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Core Basics</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              coreBasicsCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {coreBasicsCategories.map((category) => (
@@ -464,6 +524,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -471,6 +532,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Visual Effects</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              visualEffectsCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {visualEffectsCategories.map((category) => (
@@ -478,6 +545,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -485,6 +553,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Interactivity</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              interactivityCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {interactivityCategories.map((category) => (
@@ -492,6 +566,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -499,6 +574,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Shader Recipes</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              shaderRecipesCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {shaderRecipesCategories.map((category) => (
@@ -506,6 +587,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -513,6 +595,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Advanced</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              advancedCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {advancedCategories.map((category) => (
@@ -520,6 +608,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>
@@ -527,6 +616,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Production</SidebarGroupLabel>
+          <ProgressBar
+            progress={getSectionProgress(
+              productionCategories.flatMap((c) => c.topics.map((t) => t.href))
+            )}
+            className="mx-3 mb-1"
+          />
           <SidebarGroupContent>
             <SidebarMenu>
               {productionCategories.map((category) => (
@@ -534,6 +629,7 @@ export function AppSidebar() {
                   key={category.href}
                   category={category}
                   pathname={pathname}
+                  isVisited={isVisited}
                 />
               ))}
             </SidebarMenu>

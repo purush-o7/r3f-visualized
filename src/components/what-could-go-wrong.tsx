@@ -77,7 +77,7 @@ export function WhatCouldGoWrong({
               </p>
             </div>
 
-            <div className="mx-4 mb-4 rounded-lg overflow-hidden border border-border/40 bg-[#1c1e26]">
+            <div className="mx-4 mb-4 rounded-lg overflow-hidden border border-border/40 bg-code-bg">
               <div className="flex items-center gap-2 px-3 py-1.5 border-b border-white/[0.06] bg-white/[0.03]">
                 <Terminal className="size-3 text-zinc-500" />
                 <span className="text-[11px] text-zinc-500 font-mono">

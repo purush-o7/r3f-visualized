@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-jetbrains-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -38,6 +38,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-scene-bg: var(--scene-bg);
+  --color-code-bg: var(--code-bg);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -72,6 +74,8 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  --scene-bg: oklch(0.96 0 0);
+  --code-bg: oklch(0.96 0 0);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -83,19 +87,19 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.145 0.007 245);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.205 0.008 245);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0.205 0.008 245);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary-foreground: oklch(0.205 0.008 245);
+  --secondary: oklch(0.269 0.008 245);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: oklch(0.269 0.008 245);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.269 0.008 245);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -106,11 +110,13 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --scene-bg: oklch(0.13 0.007 245);
+  --code-bg: oklch(0.18 0.008 245);
+  --sidebar: oklch(0.205 0.008 245);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.269 0.008 245);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
@@ -143,27 +149,79 @@
 
 @layer utilities {
   .ambient-scene {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.488 0.243 264.376 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.488 0.243 264.376 / 3%) 0%, transparent 60%);
   }
   .ambient-geometry {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.6 0.118 184.704 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.6 0.118 184.704 / 3%) 0%, transparent 60%);
   }
   .ambient-materials {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.627 0.265 303.9 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.627 0.265 303.9 / 3%) 0%, transparent 60%);
   }
   .ambient-lights {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.769 0.188 70.08 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.769 0.188 70.08 / 3%) 0%, transparent 60%);
   }
   .ambient-canvas {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.52 0.2 142 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.52 0.2 142 / 3%) 0%, transparent 60%);
   }
   .ambient-drei {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.75 0.18 55 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.75 0.18 55 / 3%) 0%, transparent 60%);
   }
   .ambient-physics {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.637 0.237 25.331 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.637 0.237 25.331 / 3%) 0%, transparent 60%);
   }
   .ambient-shaders {
-    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.65 0.25 330 / 4%) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 20% 0%, oklch(0.65 0.25 330 / 3%) 0%, transparent 60%);
   }
+}
+
+/* Dark mode: stronger ambient gradients */
+.dark .ambient-scene {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.488 0.243 264.376 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-geometry {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.6 0.118 184.704 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-materials {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.627 0.265 303.9 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-lights {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.769 0.188 70.08 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-canvas {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.52 0.2 142 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-drei {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.75 0.18 55 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-physics {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.637 0.237 25.331 / 7%) 0%, transparent 60%);
+}
+.dark .ambient-shaders {
+  background-image: radial-gradient(ellipse at 20% 0%, oklch(0.65 0.25 330 / 7%) 0%, transparent 60%);
+}
+
+/* Code block line numbers */
+.code-line-numbers code {
+  counter-reset: line;
+}
+.code-line-numbers code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2.5ch;
+  margin-right: 1.5ch;
+  text-align: right;
+  color: oklch(0.5 0 0 / 30%);
+  user-select: none;
+}
+
+/* Code block line highlighting */
+.code-line-numbers code .line.highlighted,
+code .line.highlighted {
+  background: oklch(0.488 0.243 264.376 / 8%);
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  display: inline-block;
+  width: calc(100% + 2rem);
+  border-left: 2px solid oklch(0.488 0.243 264.376 / 50%);
 }

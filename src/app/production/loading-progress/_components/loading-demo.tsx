@@ -17,7 +17,7 @@ function LoadingScreen() {
   const { progress, item, loaded, total } = useProgress();
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0a0a0a]">
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-scene-bg">
       <div className="text-center space-y-4 px-6 max-w-xs w-full">
         <div className="text-sm text-muted-foreground font-mono">
           Loading assets...

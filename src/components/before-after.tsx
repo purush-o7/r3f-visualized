@@ -125,7 +125,7 @@ export function BeforeAfterCode({
           <span className="text-xs text-muted-foreground font-mono">{filename}</span>
         )}
       </div>
-      <div className="bg-[#1c1e26] overflow-x-auto">
+      <div className="bg-code-bg overflow-x-auto">
         <pre className="p-4 text-[13px] leading-relaxed font-mono text-zinc-300">
           <code>{isAfter ? afterCode : beforeCode}</code>
         </pre>

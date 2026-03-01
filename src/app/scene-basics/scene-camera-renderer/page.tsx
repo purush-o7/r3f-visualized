@@ -24,7 +24,7 @@ const SceneDemo = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full aspect-[2/1] rounded-xl border bg-[#0a0a0a] animate-pulse" />
+      <div className="w-full aspect-[2/1] rounded-xl border bg-scene-bg animate-pulse" />
     ),
   }
 );
