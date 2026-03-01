@@ -4,7 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function ColorSphere() {
   const { color, colorSpace, roughness, metalness } = useControls("Color", {
@@ -90,7 +91,7 @@ function SceneContent() {
 export function ColorsDemo() {
   return (
     <SceneContainer caption="Left sphere uses your selected color space, right uses the opposite -- notice the brightness difference">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <SceneContent />
       </Canvas>

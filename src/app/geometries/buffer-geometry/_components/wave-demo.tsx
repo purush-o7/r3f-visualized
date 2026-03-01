@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function WavePlane() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -66,7 +67,7 @@ function WavePlane() {
 export function WaveDemo() {
   return (
     <SceneContainer caption="Buffer geometry with vertices animated every frame using needsUpdate -- drag to orbit">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [3, 3, 3], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

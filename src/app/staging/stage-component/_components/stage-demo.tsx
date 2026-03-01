@@ -5,7 +5,8 @@ import { Stage, OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const PRESETS = ["rembrandt", "portrait", "upfront", "soft"] as const;
 type PresetType = typeof PRESETS[number];
@@ -67,7 +68,7 @@ export function StageDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Stage handles lighting, shadows, and centering. Switch presets to see different photography-inspired lighting setups.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas shadows camera={{ position: [3, 2, 4], fov: 45 }}>
           <Scene preset={preset} />
         </Canvas>

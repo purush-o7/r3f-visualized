@@ -7,6 +7,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shapes, Box, Cpu, Pen } from "lucide-react";
+import { CategoryBg } from "@/components/category-bg-loader";
+
 
 const topics = [
   {
@@ -34,7 +36,12 @@ const topics = [
 
 export default function GeometriesPage() {
   return (
-    <div className="max-w-4xl">
+    <div className="relative max-w-4xl">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <CategoryBg category="geometries" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+      </div>
+      <div className="relative z-10">
       <div className="flex items-center gap-3 mb-2">
         <div className="rounded-lg p-2 bg-teal-500/10 text-teal-500">
           <Shapes className="size-5" />
@@ -62,6 +69,6 @@ export default function GeometriesPage() {
           </Link>
         ))}
       </div>
-    </div>
+      </div>    </div>
   );
 }

@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls, button } from "leva";
+import { useControls, button } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 import { Physics, RigidBody } from "@react-three/rapier";
 
 const BALL_COLORS = ["#ef4444", "#3b82f6", "#22c55e", "#f59e0b", "#a855f7", "#ec4899", "#14b8a6", "#f97316"];
@@ -232,7 +233,7 @@ function PhysicsScene() {
 export function PhysicsDemo() {
   return (
     <SceneContainer caption="Click 'Drop Balls' to spawn physics objects -- adjust gravity and bounciness with the controls">
-      <Leva collapsed titleBar={{ title: "Physics Controls" }} />
+      <LevaPanel title="Physics Controls" />
       <Canvas
         camera={{ position: [6, 5, 8], fov: 50 }}
         shadows

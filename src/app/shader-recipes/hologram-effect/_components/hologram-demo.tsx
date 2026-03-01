@@ -2,7 +2,8 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 import { SceneContainer } from "@/components/scene-container";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -150,7 +151,7 @@ function Scene() {
 export function HologramDemo() {
   return (
     <SceneContainer caption="Holographic torus knot with fresnel glow, animated scan lines, and glitch flickering. All effects computed in the fragment shader.">
-      <Leva collapsed titleBar={{ title: "Hologram Controls" }} />
+      <LevaPanel title="Hologram Controls" />
       <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }}>
         <Scene />
       </Canvas>

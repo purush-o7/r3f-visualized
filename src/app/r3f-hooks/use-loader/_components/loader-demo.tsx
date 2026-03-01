@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function ProceduralSphere({ roughness, metalness }: { roughness: number; metalness: number }) {
   const ref = useRef<THREE.Mesh>(null);
@@ -147,7 +148,7 @@ function Scene() {
 export function LoaderDemo() {
   return (
     <SceneContainer caption="Procedural textures applied to geometry -- in real apps, useLoader loads these from files with caching + Suspense.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0.5, 4], fov: 45 }}>
         <Scene />
       </Canvas>

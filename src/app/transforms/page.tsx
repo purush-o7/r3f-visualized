@@ -7,6 +7,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RotateCcw, Move3D, Droplets, Smartphone, CloudFog } from "lucide-react";
+import { CategoryBg } from "@/components/category-bg-loader";
+
 
 const topics = [
   {
@@ -41,7 +43,12 @@ const topics = [
 
 export default function TransformsPage() {
   return (
-    <div className="max-w-4xl">
+    <div className="relative max-w-4xl">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <CategoryBg category="transforms" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+      </div>
+      <div className="relative z-10">
       <div className="flex items-center gap-3 mb-2">
         <div className="rounded-lg p-2 bg-violet-500/10 text-violet-500">
           <RotateCcw className="size-5" />
@@ -70,6 +77,6 @@ export default function TransformsPage() {
           </Link>
         ))}
       </div>
-    </div>
+      </div>    </div>
   );
 }

@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function PortalScene() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -159,7 +160,7 @@ function MainScene() {
 export function RenderTargetDemo() {
   return (
     <SceneContainer caption="A mini scene rendered to a texture, displayed on a TV screen. Toggle the portal on/off and change the render resolution.">
-      <Leva collapsed titleBar={{ title: "Render Target Controls" }} />
+      <LevaPanel title="Render Target Controls" />
       <Canvas camera={{ position: [0, 1.5, 4], fov: 45 }}>
         <MainScene />
       </Canvas>

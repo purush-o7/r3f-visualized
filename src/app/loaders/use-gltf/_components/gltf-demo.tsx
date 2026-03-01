@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function RobotPart({
   position,
@@ -116,7 +117,7 @@ function Scene() {
 export function GltfDemo() {
   return (
     <SceneContainer caption="A robot composed from primitive nodes -- representing how useGLTF destructures a model into nodes and materials for per-part control.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [1, 1, 3], fov: 50 }}>
         <Scene />
       </Canvas>

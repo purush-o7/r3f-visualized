@@ -5,7 +5,8 @@ import { OrbitControls, Line } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function CurveWithTraveler() {
   const dotRef = useRef<THREE.Mesh>(null);
@@ -133,7 +134,7 @@ function Scene() {
 export function LinesDemo() {
   return (
     <SceneContainer caption="A CatmullRomCurve3 shown as both a line and a tube. The cyan dot travels along the curve. Toggle control points and adjust tube thickness.">
-      <Leva collapsed titleBar={{ title: "Curve Controls" }} />
+      <LevaPanel title="Curve Controls" />
       <Canvas camera={{ position: [0, 2, 6], fov: 50 }}>
         <Scene />
       </Canvas>

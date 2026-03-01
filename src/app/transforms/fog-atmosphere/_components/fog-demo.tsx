@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useEffect } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function FogController() {
   const { scene } = useThree();
@@ -88,7 +89,7 @@ function SceneContent() {
 export function FogDemo() {
   return (
     <SceneContainer caption="Switch between fog types and adjust distance -- watch distant objects fade into the mist">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 2, 6], fov: 50 }}>
         <SceneContent />
       </Canvas>

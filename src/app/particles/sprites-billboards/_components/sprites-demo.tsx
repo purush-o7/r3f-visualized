@@ -5,7 +5,8 @@ import { OrbitControls, Billboard, Text } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function FloatingLabel({
   position,
@@ -171,7 +172,7 @@ function Scene() {
 export function SpritesDemo() {
   return (
     <SceneContainer caption="Billboard labels always face the camera. Orbit around to see them rotate. Toggle sparkle sprites and adjust scale and opacity.">
-      <Leva collapsed titleBar={{ title: "Sprite Controls" }} />
+      <LevaPanel title="Sprite Controls" />
       <Canvas camera={{ position: [3, 2, 5], fov: 45 }}>
         <Scene />
       </Canvas>

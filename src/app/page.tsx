@@ -281,7 +281,8 @@ function CategoryCard({
 
 export default function Home() {
   return (
-    <div className="max-w-4xl">
+    <div className="relative max-w-4xl">
+      <div className="absolute -top-10 -left-10 w-72 h-72 bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
       {/* Hero with 3D Canvas */}
       <div className="relative mb-10 -mx-6 -mt-6 lg:-mx-10 lg:-mt-10 px-6 lg:px-10 py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-auto">

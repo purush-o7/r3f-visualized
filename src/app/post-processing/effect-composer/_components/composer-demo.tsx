@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function EmissiveOrb({
   position,
@@ -87,7 +88,7 @@ function SceneContent() {
 export function ComposerDemo() {
   return (
     <SceneContainer caption="A scene with emissive orbs and a metallic torus knot -- ready for post-processing effects like Bloom and Vignette.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 1.5, 4], fov: 50 }}>
         <SceneContent />
       </Canvas>

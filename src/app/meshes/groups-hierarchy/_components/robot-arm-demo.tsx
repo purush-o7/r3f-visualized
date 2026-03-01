@@ -5,7 +5,8 @@ import { OrbitControls, Grid } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function RobotArm() {
   const baseRef = useRef<THREE.Group>(null);
@@ -92,7 +93,7 @@ function RobotArm() {
 export function RobotArmDemo() {
   return (
     <SceneContainer caption="Each joint is a nested <group> -- rotating a parent moves all children">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [3, 2, 3], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

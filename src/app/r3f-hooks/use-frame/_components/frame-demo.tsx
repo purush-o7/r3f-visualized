@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function DeltaCube({ speed, color }: { speed: number; color: string }) {
   const ref = useRef<THREE.Mesh>(null);
@@ -79,7 +80,7 @@ export function FrameDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Left uses delta (smooth at any framerate). Right uses fixed value (framerate-dependent).">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [0, 2.5, 5], fov: 50 }}>
           <Scene speed={speed} />
         </Canvas>

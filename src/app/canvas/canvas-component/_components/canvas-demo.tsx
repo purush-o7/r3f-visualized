@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function SpinningTorusKnot() {
   const ref = useRef<THREE.Mesh>(null);
@@ -39,7 +40,7 @@ function SpinningTorusKnot() {
 export function CanvasDemo() {
   return (
     <SceneContainer caption='This entire 3D scene is just a <Canvas> component'>
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 1.5, 4], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />

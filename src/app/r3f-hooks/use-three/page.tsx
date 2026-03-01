@@ -93,7 +93,8 @@ function Scene() {
 
 export default function UseThreePage() {
   return (
-    <div className="max-w-4xl ambient-canvas">
+    <div className="relative max-w-4xl">
+      <div className="absolute -top-10 -left-10 w-72 h-72 bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
       {/* ── 1. Title + Badge + Intro ── */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-3">

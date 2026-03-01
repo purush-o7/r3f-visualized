@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function RayLine() {
   const lineRef = useRef<THREE.Line>(null);
@@ -149,7 +150,7 @@ function HitMarker() {
 export function RaycastDemo() {
   return (
     <SceneContainer caption="Move your mouse to see the raycast -- objects highlight when the ray hits them">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 2, 6], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

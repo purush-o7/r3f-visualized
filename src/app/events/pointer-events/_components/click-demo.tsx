@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const COLORS = ["#ef4444", "#3b82f6", "#22c55e", "#f59e0b", "#a855f7"];
 
@@ -92,7 +93,7 @@ function InteractiveShape({
 export function ClickDemo() {
   return (
     <SceneContainer caption="Hover to glow and scale up, click to change color and bounce">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

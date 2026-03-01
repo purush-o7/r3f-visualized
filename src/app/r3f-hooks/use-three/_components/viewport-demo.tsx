@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function CornerSphere({ corner, visible }: { corner: "tl" | "tr" | "bl" | "br"; visible: boolean }) {
   const ref = useRef<THREE.Mesh>(null);
@@ -101,7 +102,7 @@ function Scene() {
 export function ViewportDemo() {
   return (
     <SceneContainer caption="Resize the browser window -- objects stay pinned to corners using viewport dimensions.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <Scene />
       </Canvas>

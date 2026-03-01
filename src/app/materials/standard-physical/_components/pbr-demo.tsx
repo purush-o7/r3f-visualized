@@ -5,7 +5,8 @@ import { OrbitControls, Environment, Html } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function PBRSphere({
   position,
@@ -155,7 +156,7 @@ function Scene() {
 export function PBRDemo() {
   return (
     <SceneContainer caption="PBR roughness (top row) and metalness (bottom row) -- orbit to see how reflections change with each parameter.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas
         camera={{ position: [0, 1.5, 6], fov: 42 }}
         shadows

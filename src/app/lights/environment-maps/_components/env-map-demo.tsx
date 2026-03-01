@@ -5,7 +5,8 @@ import { OrbitControls, Environment } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 type EnvPreset =
   | "sunset"
@@ -136,7 +137,7 @@ export function EnvMapDemo() {
 
   return (
     <SceneContainer caption="A reflective metallic sphere with environment-based lighting -- switch presets to see how the reflections and ambient light change.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1.5 max-w-[280px]">
         {presets.map((p) => (
           <button

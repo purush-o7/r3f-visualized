@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const vertexShader = `
   uniform float uTime;
@@ -109,7 +110,7 @@ function Scene() {
 export function ShaderDemo() {
   return (
     <SceneContainer caption="Custom GLSL shader with vertex displacement and animated gradient colors. The sphere morphs using sine waves.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }}>
         <Scene />
       </Canvas>

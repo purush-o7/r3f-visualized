@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 type ShadowType = "Basic" | "PCF" | "PCFSoft" | "VSM";
 
@@ -145,7 +146,7 @@ export function ShadowDemo() {
 
   return (
     <SceneContainer caption="Objects casting and receiving shadows -- toggle shadow map types to compare quality. The sphere bobs up and down to show dynamic shadow response.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <div className="absolute top-3 left-3 z-10 flex gap-1.5 flex-wrap">
         {(Object.keys(shadowTypeMap) as ShadowType[]).map((type) => (
           <button

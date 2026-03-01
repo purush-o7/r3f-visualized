@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const vertexShader = `
   varying vec2 vUv;
@@ -108,7 +109,7 @@ function Scene() {
 export function UniformsDemo() {
   return (
     <SceneContainer caption="Uniforms (colors, time) are sent from JavaScript. Varyings (position, normal) are interpolated per-pixel by the GPU.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }}>
         <Scene />
       </Canvas>

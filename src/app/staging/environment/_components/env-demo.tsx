@@ -5,7 +5,8 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const PRESETS = ["sunset", "dawn", "warehouse", "city", "forest", "night"] as const;
 type PresetType = typeof PRESETS[number];
@@ -105,7 +106,7 @@ export function EnvDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Toggle environment presets -- watch how reflections and lighting change on metallic and glass surfaces.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [0, 0.5, 4], fov: 45 }}>
           <Scene preset={preset} />
         </Canvas>

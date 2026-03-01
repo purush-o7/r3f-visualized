@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function SimpleHouse() {
   const groupRef = useRef<THREE.Group>(null);
@@ -87,7 +88,7 @@ function Scene() {
 export function ModelDemo() {
   return (
     <SceneContainer caption="A house built from primitive shapes -- representing how GLTF models are composed of meshes, materials, and a scene hierarchy.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [2, 2, 3], fov: 50 }}>
         <Scene />
       </Canvas>

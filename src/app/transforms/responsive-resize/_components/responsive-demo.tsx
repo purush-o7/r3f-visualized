@@ -3,7 +3,8 @@
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function ViewportInfo() {
   const { size, viewport } = useThree();
@@ -80,7 +81,7 @@ function SceneContent() {
 export function ResponsiveDemo() {
   return (
     <SceneContainer caption="Resize your browser window to see the objects adapt -- the viewport info updates in real-time">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 1.5, 6], fov: 50 }} dpr={[0.5, 2]}>
         <SceneContent />
       </Canvas>

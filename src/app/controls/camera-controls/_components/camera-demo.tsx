@@ -6,7 +6,8 @@ import { useRef } from "react";
 import * as THREE from "three";
 import type { CameraControls as CameraControlsImpl } from "@react-three/drei";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function FloatingShape({
   position,
@@ -101,7 +102,7 @@ export function CameraDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Click buttons to smoothly fly the camera to each object. Drag to orbit freely.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [5, 4, 6], fov: 45 }}>
           <Scene controlsRef={controlsRef} />
         </Canvas>

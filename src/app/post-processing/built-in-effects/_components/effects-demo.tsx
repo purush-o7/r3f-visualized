@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function GlowingSphere({
   position,
@@ -98,7 +99,7 @@ function SceneContent() {
 export function EffectsDemo() {
   return (
     <SceneContainer caption="Emissive spheres pulsing around a metallic torus -- add Bloom, Vignette, or Noise to see each effect's impact.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 2, 4], fov: 50 }}>
         <SceneContent />
       </Canvas>

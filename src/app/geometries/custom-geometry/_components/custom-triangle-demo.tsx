@@ -5,7 +5,8 @@ import { OrbitControls, Line } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function CustomTriangle() {
   const meshRef = useRef<THREE.Group>(null);
@@ -118,7 +119,7 @@ function CustomTriangle() {
 export function CustomTriangleDemo() {
   return (
     <SceneContainer caption="Custom triangle from raw vertices -- dots show vertex positions, yellow lines show normals">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0.5, 3], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

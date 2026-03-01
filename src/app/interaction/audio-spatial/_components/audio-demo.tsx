@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 /* ── Pulsing ring that emanates from a sound source ── */
 function PulseRing({
@@ -256,7 +257,7 @@ export function AudioDemo() {
 
   return (
     <SceneContainer caption="Drag the listener position with Leva controls -- closer sources pulse faster and brighter">
-      <Leva collapsed titleBar={{ title: "Audio Controls" }} />
+      <LevaPanel title="Audio Controls" />
       <Canvas camera={{ position: [0, 6, 8], fov: 50 }}>
         <ambientLight intensity={0.3} />
         <directionalLight position={[5, 8, 5]} intensity={0.8} />

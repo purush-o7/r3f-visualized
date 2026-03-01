@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function RotatingMesh() {
   const ref = useRef<THREE.Mesh>(null);
@@ -40,7 +41,7 @@ function RotatingMesh() {
 export function JsxMappingDemo() {
   return (
     <SceneContainer caption="JSX on the left maps directly to the 3D scene on the right">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <div className="flex h-full">
         {/* JSX code card */}
         <div className="w-[45%] p-3 sm:p-4 flex items-center">

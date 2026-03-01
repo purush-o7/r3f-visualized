@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function Sun() {
   const ref = useRef<THREE.Mesh>(null);
@@ -90,7 +91,7 @@ function OrbitRing({ radius }: { radius: number }) {
 export function SolarSystemDemo() {
   return (
     <SceneContainer caption="Parent-child transforms: the Moon orbits Earth, which orbits the Sun">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 3, 5], fov: 50 }}>
         <ambientLight intensity={0.3} />
         <pointLight position={[0, 0, 0]} intensity={2} color="#fbbf24" />

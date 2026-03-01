@@ -5,7 +5,8 @@ import { OrbitControls, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function HelperScene() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -82,7 +83,7 @@ function HelperScene() {
 export function WireframeDemo() {
   return (
     <SceneContainer caption="Toggle wireframe, axes, grid, and box helpers to see the scene skeleton">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [2.5, 2, 2.5], fov: 50 }}>
         <HelperScene />
       </Canvas>

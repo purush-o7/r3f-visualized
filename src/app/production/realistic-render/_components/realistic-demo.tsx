@@ -5,7 +5,8 @@ import { OrbitControls, Environment } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const TONE_MAPPING_OPTIONS: Record<string, THREE.ToneMapping> = {
   ACESFilmic: THREE.ACESFilmicToneMapping,
@@ -152,7 +153,7 @@ export function RealisticDemo() {
 
   return (
     <SceneContainer caption="Toggle tone mapping, exposure, color space, and shadows. Notice how ACESFilmic vs Linear dramatically changes the mood.">
-      <Leva collapsed titleBar={{ title: "Render Settings" }} />
+      <LevaPanel title="Render Settings" />
       <Canvas
         camera={{ position: [4, 3, 5], fov: 45 }}
         shadows={shadows}

@@ -4,7 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { Sky, Stars, OrbitControls } from "@react-three/drei";
 import { useState, useMemo } from "react";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function Terrain() {
   return (
@@ -118,7 +119,7 @@ export function SkyDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Drag the slider to move the sun from dawn to dusk. Stars fade in as the sky darkens.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [0, 2, 8], fov: 50 }} shadows>
           <Scene sunAngle={sunAngle} />
         </Canvas>

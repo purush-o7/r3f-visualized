@@ -2,7 +2,8 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 import { SceneContainer } from "@/components/scene-container";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -175,7 +176,7 @@ function Scene() {
 export function GalaxyDemo() {
   return (
     <SceneContainer caption="Procedural spiral galaxy with per-particle coloring. Adjust arm count, spin, randomness, and colors in the controls.">
-      <Leva collapsed titleBar={{ title: "Galaxy Controls" }} />
+      <LevaPanel title="Galaxy Controls" />
       <Canvas camera={{ position: [0, 3, 6], fov: 50 }}>
         <Scene />
       </Canvas>

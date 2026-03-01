@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function RotatingObjects({ rotationSpeed }: { rotationSpeed: number }) {
   const groupRef = useRef<THREE.Group>(null);
@@ -174,7 +175,7 @@ export function LightsShowcase() {
 
   return (
     <SceneContainer caption="Toggle each light type to see how it affects the scene. Point light orbits automatically when active.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1.5">
         {lightConfig.map(({ key, label, color }) => (
           <button

@@ -4,7 +4,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function IndividualMeshes({ count, rotationSpeed, spacing }: { count: number; rotationSpeed: number; spacing: number }) {
   const groupRef = useRef<THREE.Group>(null);
@@ -120,7 +121,7 @@ export function PerfDemo() {
   return (
     <div className="space-y-2">
       <SceneContainer caption="Red: individual meshes (many draw calls). Green: 1 InstancedMesh (1 draw call). Same visual result, massive performance difference.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [0, 0, 7], fov: 50 }}>
           <SceneContent mode={mode} />
         </Canvas>

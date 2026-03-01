@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function Showcase() {
   const torusRef = useRef<THREE.Mesh>(null);
@@ -114,7 +115,7 @@ export function OrbitDemo() {
   return (
     <div className="space-y-3">
       <SceneContainer caption="Drag to orbit, scroll to zoom, right-click to pan. Toggle features below.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [3, 3, 5], fov: 45 }}>
           <Scene damping={damping} autoRotate={autoRotate} constrain={constrain} />
         </Canvas>

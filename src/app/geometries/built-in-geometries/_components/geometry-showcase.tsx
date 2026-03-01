@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 const geometries = [
   { name: "Box", create: () => new THREE.BoxGeometry(1, 1, 1) },
@@ -107,7 +108,7 @@ export function GeometryShowcase() {
       <SceneContainer
         caption={`${geometries[selected].name}Geometry -- click the buttons below to switch`}
       >
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [2, 1.5, 2], fov: 50 }}>
           <Scene selected={selected} />
         </Canvas>

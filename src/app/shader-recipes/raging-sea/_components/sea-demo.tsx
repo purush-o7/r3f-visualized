@@ -2,7 +2,8 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 import { SceneContainer } from "@/components/scene-container";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -159,7 +160,7 @@ function Scene() {
 export function SeaDemo() {
   return (
     <SceneContainer caption="Animated ocean surface with layered sine wave vertex displacement. Adjust wave parameters and colors with the controls.">
-      <Leva collapsed titleBar={{ title: "Sea Controls" }} />
+      <LevaPanel title="Sea Controls" />
       <Canvas camera={{ position: [2.5, 2, 3], fov: 50 }}>
         <Scene />
       </Canvas>

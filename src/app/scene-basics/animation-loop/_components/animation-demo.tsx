@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function DeltaTimeCube({
   speed,
@@ -112,7 +113,7 @@ export function AnimationDemo() {
   return (
     <div className="space-y-2">
       <SceneContainer caption="Green (left) uses delta time -- smooth at any framerate. Red (right) uses fixed step -- would drift on different monitors.">
-        <Leva collapsed titleBar={{ title: "Controls" }} />
+        <LevaPanel title="Controls" />
         <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
           <Scene speed={speed} />
         </Canvas>

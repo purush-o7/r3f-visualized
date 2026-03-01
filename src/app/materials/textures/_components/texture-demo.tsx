@@ -5,7 +5,8 @@ import { OrbitControls, Html } from "@react-three/drei";
 import { useRef, useMemo, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 type WrapMode = "repeat" | "mirrored" | "clamp";
 
@@ -121,7 +122,7 @@ export function TextureDemo() {
 
   return (
     <SceneContainer caption="Procedural checkerboard texture -- change wrapping mode and repeat count to see the difference.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
         <div className="flex gap-1.5">
           {(["repeat", "mirrored", "clamp"] as const).map((mode) => (

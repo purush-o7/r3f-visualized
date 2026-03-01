@@ -5,7 +5,8 @@ import { OrbitControls, Html } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function LabeledSphere({
   position,
@@ -112,7 +113,7 @@ function SceneContent() {
 export function HtmlDemo() {
   return (
     <SceneContainer caption="HTML labels follow 3D objects as they bob up and down. Orbit to see them track in 3D space.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
         <SceneContent />
       </Canvas>

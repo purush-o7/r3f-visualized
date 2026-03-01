@@ -5,7 +5,8 @@ import { Instances, Instance, OrbitControls } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 interface ParticleData {
   position: [number, number, number];
@@ -104,7 +105,7 @@ function Scene() {
 export function DreiPerfDemo() {
   return (
     <SceneContainer caption="Instances rendered in a single draw call using drei's Instances component. Each cube animates independently in a wave pattern.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [4, 5, 8], fov: 50 }}>
         <Scene />
       </Canvas>

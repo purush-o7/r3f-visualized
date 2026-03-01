@@ -10,7 +10,8 @@ import {
 import { Suspense, useState, useEffect } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 /* ── Custom Loading Screen ── */
 function LoadingScreen() {
@@ -121,7 +122,7 @@ export function LoadingDemo() {
   return (
     <div className="space-y-2">
       <SceneContainer caption="A custom loading screen using useProgress. Click 'Reload Scene' to see the loading animation replay.">
-        <Leva collapsed titleBar={{ title: "Loading Demo" }} />
+        <LevaPanel title="Loading Demo" />
         {showScene && (
           <Canvas
             key={sceneKey}

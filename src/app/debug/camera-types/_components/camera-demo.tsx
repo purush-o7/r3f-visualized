@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function SceneObjects() {
   const groupRef = useRef<THREE.Group>(null);
@@ -113,7 +114,7 @@ function SceneContent() {
 export function CameraDemo() {
   return (
     <SceneContainer caption="Switch between Perspective and Orthographic cameras -- notice how depth perception changes">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [4, 3, 4], fov: 50 }}>
         <SceneContent />
       </Canvas>

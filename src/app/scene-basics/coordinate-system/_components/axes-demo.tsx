@@ -5,7 +5,8 @@ import { OrbitControls, Text, Line } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function AxisArrow({
   direction,
@@ -110,7 +111,7 @@ function SceneContent() {
 export function AxesDemo() {
   return (
     <SceneContainer caption="RGB = XYZ axes -- Red is X (right), Green is Y (up), Blue is Z (toward you)">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [3, 2.5, 3], fov: 50 }}>
         <SceneContent />
       </Canvas>

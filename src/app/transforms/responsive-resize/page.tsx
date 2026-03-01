@@ -105,7 +105,8 @@ function ResponsiveLayout() {
 
 export default function ResponsiveResizePage() {
   return (
-    <div className="max-w-4xl ambient-responsive">
+    <div className="relative max-w-4xl">
+      <div className="absolute -top-10 -left-10 w-72 h-72 bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-3">
           <Badge variant="outline">Transforms & Color</Badge>

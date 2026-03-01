@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 /* ── 1. Raw useFrame animation ── */
 function RawBox({ position }: { position: [number, number, number] }) {
@@ -165,7 +166,7 @@ function Label({
 export function SpringDemo() {
   return (
     <SceneContainer caption="Click each box to toggle -- watch how each animation style feels different">
-      <Leva collapsed titleBar={{ title: "Animation Controls" }} />
+      <LevaPanel title="Animation Controls" />
       <Canvas camera={{ position: [0, 2, 6], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

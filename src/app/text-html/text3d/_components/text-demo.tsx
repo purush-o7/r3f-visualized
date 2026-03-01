@@ -5,7 +5,8 @@ import { OrbitControls, Text, Float } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function FloatingText() {
   const groupRef = useRef<THREE.Group>(null);
@@ -84,7 +85,7 @@ function Scene() {
 export function TextDemo() {
   return (
     <SceneContainer caption="3D text floating and rotating with metallic materials. Drag to orbit.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
         <Scene />
       </Canvas>

@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
@@ -90,7 +91,7 @@ function Scene() {
 export function ParticlesDemo() {
   return (
     <SceneContainer caption="Thousands of floating particles animated with useFrame. Tweak count, size, speed, and spread in the controls.">
-      <Leva collapsed titleBar={{ title: "Particle Controls" }} />
+      <LevaPanel title="Particle Controls" />
       <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
         <Scene />
       </Canvas>

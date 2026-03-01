@@ -5,7 +5,8 @@ import { OrbitControls, Grid } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function SpinningBox() {
   const ref = useRef<THREE.Mesh>(null);
@@ -49,7 +50,7 @@ function SpinningBox() {
 export function SceneDemo() {
   return (
     <SceneContainer caption="A basic Three.js scene -- drag to orbit, scroll to zoom">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [3, 2, 3], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />

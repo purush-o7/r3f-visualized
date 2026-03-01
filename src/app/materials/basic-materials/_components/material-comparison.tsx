@@ -5,7 +5,8 @@ import { OrbitControls, Html } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function MaterialSphere({
   position,
@@ -114,7 +115,7 @@ function Scene() {
 export function MaterialComparison() {
   return (
     <SceneContainer caption="Four material types side by side -- notice how Basic and Normal ignore the directional light, while Lambert and Phong respond to it. Drag to orbit.">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas
         camera={{ position: [0, 3, 6], fov: 45 }}
         shadows

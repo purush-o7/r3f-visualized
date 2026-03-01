@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef, useMemo, useEffect, useState } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function WaveCubes() {
   const meshRef = useRef<THREE.InstancedMesh>(null);
@@ -115,7 +116,7 @@ function Stats() {
 export function InstancedDemo() {
   return (
     <SceneContainer caption="600+ cubes rendered in a single draw call with a wave animation">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [0, 4, 8], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 8, 5]} intensity={1} />

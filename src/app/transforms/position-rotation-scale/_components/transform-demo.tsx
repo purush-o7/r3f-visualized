@@ -5,7 +5,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { SceneContainer } from "@/components/scene-container";
-import { Leva, useControls } from "leva";
+import { useControls } from "leva";
+import { LevaPanel } from "@/components/leva-panel";
 
 function TransformableMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -84,7 +85,7 @@ function SceneContent() {
 export function TransformDemo() {
   return (
     <SceneContainer caption="Drag the sliders to move, rotate, and scale the cube -- the ghost shows the original position">
-      <Leva collapsed titleBar={{ title: "Controls" }} />
+      <LevaPanel title="Controls" />
       <Canvas camera={{ position: [3, 2, 3], fov: 50 }}>
         <SceneContent />
       </Canvas>
